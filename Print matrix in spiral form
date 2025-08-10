@@ -1,0 +1,38 @@
+#include <stdio.h>
+void spiral(int a[10][10], int row, int col) {
+    int top = 0, bottom = row, left = 0, right = col;
+    while(top < bottom && left < right) {
+        for(int i = left; i < right; i++) printf("%d ", a[top][i]);
+        top++;
+        for(int i = top; i < bottom; i++) printf("%d ", a[i][right-1]);
+        right--;
+        if(top < bottom) {
+            for(int i = right-1; i >= left; i--) printf("%d ", a[bottom-1][i#include <stdio.h>
+
+int main() {
+    int mat[100][100], r, c, count = 0;
+    scanf("%d %d", &r, &c);
+    for (int i = 0; i < r; i++)
+        for (int j = 0; j < c; j++) {
+            scanf("%d", &mat[i][j]);
+            if (mat[i][j] == 0) count++;
+        }
+    printf("%d", count);
+    return 0;
+}
+            bottom--;
+        }
+        if(left < right) {
+            for(int i = bottom-1; i >= top; i--) printf("%d ", a[i][left]);
+            left++;
+        }
+    }
+}
+int main() {
+    int a[10][10], row = 3, col = 3;
+    for(int i=0; i<row; i++)
+        for(int j=0; j<col; j++)
+            scanf("%d", &a[i][j]);
+    spiral(a, row, col);
+    return 0;
+}
