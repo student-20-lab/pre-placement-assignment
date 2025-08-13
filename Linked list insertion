@@ -1,0 +1,22 @@
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+struct Node* insertAtBeginning(struct Node* head, int data) {
+    struct Node* newNode = malloc(sizeof(struct Node));
+    newNode->data = data;
+    newNode->next = head;
+    return newNode;
+}
+
+struct Node* insertAtEnd(struct Node* head, int data) {
+    struct Node* newNode = malloc(sizeof(struct Node));
+    newNode->data = data;
+    newNode->next = NULL;
+    if (!head) return newNode;
+    struct Node* temp = head;
+    while (temp->next) temp = temp->next;
+    temp->next = newNode;
+    return head;
+}
