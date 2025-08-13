@@ -1,0 +1,15 @@
+struct Node* insertInMiddle(struct Node* head, int x) {
+    struct Node* n = (struct Node*)malloc(sizeof(struct Node));
+    n->data = x; n->next = NULL;
+    if (!head) return n;
+
+  
+    struct Node *slow = head, *fast = head->next;
+    while (fast && fast->next) {
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+    n->next = slow->next;
+    slow->next = n;
+    return head;
+}
